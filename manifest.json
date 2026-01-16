@@ -1,0 +1,57 @@
+{
+    "manifest_version": 3,
+    "name": "BrowseWise",
+    "version": "1.0",
+    "description": "Track time spent on websites with detailed insights.",
+    "permissions": ["storage", "activeTab", "scripting", "history", "alarms", "tabs", "notifications", "declarativeNetRequest", "declarativeNetRequestWithHostAccess"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "action": {
+      "default_popup": "popup/popup.html",
+      "default_icon": {
+        "16": "assets/icons/icon.png",
+        "48": "assets/icons/icon.png",
+        "128": "assets/icons/icon.png"
+      }
+    },
+
+    "declarative_net_request": {
+      "rule_resources": [
+        {
+          "id": "block_sites",
+          "enabled": true,
+          "path": "rules.json"
+        }
+      ]
+    },
+ 
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+    "host_permissions": ["<all_urls>", "*://*/*"],
+
+"content_scripts": [
+  {
+    "matches": ["<all_urls>"],
+    "js": ["database/indexedDB.js", "database/db.js", "content.js"]
+  }
+],
+
+"web_accessible_resources": [
+    {
+      "resources": [
+        "libs/jspdf.min.js",
+        "libs/jspdf.plugin.autotable.min.js",
+        "database/indexedDB.js",
+        "database/db.js",
+        "assets/alarm.mp3",
+        "dashboard/index.html"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+
+  }
+  
+

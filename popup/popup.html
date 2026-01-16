@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrowseWise Extension</title>
+    <link rel="stylesheet" href="../assets/popup.css">
+    <link rel="stylesheet" href="../libs/bootstrap/bootstrap.min.css">
+</head>
+<body>
+    <div class="popup-container">
+        <div class="popup-header d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <i class="bi bi-clock"></i>
+                <span class="title">BrowseWise Extension</span>
+            </div>
+            <button class="close-btn">&times;</button>
+        </div>
+
+        <!-- Focus Mode Section -->
+        <div class="focus-mode-container">
+            <span class="text-muted">Focus Mode</span>
+            <button id="focus-mode-btn" class="btn btn-dark w-100 focus-btn">
+                <i class="bi bi-exclamation-circle"></i> Enable Focus Mode
+            </button>
+            <div id="focus-status" class="text-muted">Focus Mode is OFF</div>
+        </div>
+
+        <!-- Block List UI -->
+        <div class="block-list-section">
+            <div class="input-group">
+                <input type="text" id="block-list" class="form-control" placeholder="example.com">
+                <button id="add-block-site" class="btn btn-success">Add</button>
+            </div>
+            <label for="block-list"><strong>Blocked Websites:</strong> </label>
+            <ul id="block-list-display" class="list-group mt-2"></ul>
+            <button id="save-block-list" class="btn btn-primary w-100 mt-2">Save Block List</button>
+        </div>
+
+        <!-- Time Limit Section -->
+        <div class="time-limit-container">
+            <span class="text-muted">Set Time Limit Alerts</span>
+            <input type="number" id="time-limit-input" class="form-control" placeholder="Minutes">
+            <button id="set-limit-btn" class="btn btn-outline-secondary w-100 time-limit-btn">
+                <i class="bi bi-bell"></i> Set Time Limit
+            </button>
+            <div id="time-status" class="text-muted">No time limit set</div>
+        </div>
+
+        <a href="../dashboard/index.html" target="_blank" class="btn btn-primary w-100 dashboard-btn">
+            <i class="bi bi-bar-chart-line"></i> View Dashboard
+        </a>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

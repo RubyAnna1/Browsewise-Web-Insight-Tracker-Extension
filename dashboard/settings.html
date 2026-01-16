@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Web Insight Tracker</title>
+    <link rel="stylesheet" href="../assets/dashboard.css">
+    <script src="../database/indexedDB.js"></script>
+    <script src="../database/db.js"></script>
+
+    <link href="../libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>BrowseWise</h2>
+            <ul>
+                <li><a href="index.html">📊 Insights</a></li>
+                <li class="active">⚙️ Settings</li>
+            </ul>
+        </aside>
+        <main>
+            <header class="settings-header">
+                <h1>Settings</h1>
+                <br>
+            </header>
+            <p>Customize your tracking preferences here.</p>
+                <h2>Appearance</h2>
+                <div class="setting-item">
+                    <label for="theme">Theme:</label>
+                    <select id="theme">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+            </section>
+
+            <button id="save-settings">💾 Save Settings</button>
+        </main>
+    </div>
+
+    <script src="../dashboard/settings.js"></script>
+</body>
+</html>

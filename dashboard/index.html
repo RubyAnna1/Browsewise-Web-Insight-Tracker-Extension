@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Web Insight Tracker</title>
+    <link rel="stylesheet" href="../assets/dashboard.css">
+    <script src="../database/indexedDB.js"></script>
+    <script src="../database/db.js"></script>
+
+    <script src="../libs/jspdf.umd.min.js"></script>
+    <script src="../libs/jspdf.plugin.autotable.min.js"></script>
+    
+    <link href="../libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Load Chart.js BEFORE charts.js -->
+    <script src="../libs/chart.min.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>BrowseWise</h2>
+            <ul>
+                <li class="active">📊 Insights</a></li>
+                <li><a href="settings.html">⚙️ Settings</a></li>
+            </ul>
+        </aside>
+        <main>
+            <header>
+                <h1>Dashboard</h1>
+                <p>Welcome back, <span id="username"></span>!</p>
+                <div class="filter-section">
+                    <label for="filter">Filter by:</label>
+                    <select id="filter">
+                        <option value="day">Day</option>
+                        <option value="month">Month</option>
+                        <option value="year">Year</option>
+                    </select>
+                    <div id="filter-options"></div>
+                </div>
+
+             <button id="export-data">📥 Export Data</button>
+            </header>
+            <section class="stats">
+                <div class="stat-box">
+                    <p id="total-time-label">Total Time Today</p>
+                    <h2 id="total-time">0h 0m</h2>
+                </div>
+                <div class="stat-box">
+                    <p id="active-hours-label">Most Active Hours</p>
+                    <h2 id="active-hours">-</h2>
+                </div>
+                <div class="stat-box">
+                    <p>Websites Visited</p>
+                    <h2 id="websites-visited">0</h2>
+                </div>
+            </section>
+
+            <section class="charts">
+                <div class="chart-box">
+                    <canvas id="timeline-chart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <canvas id="pie-chart"></canvas>
+                </div>
+                <!-- Add missing usageChart -->
+                <div class="chart-box">
+                    <canvas id="usageChart"></canvas>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date</th>
+                            <th>Website</th>
+                            <th>Time Spent</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usageTableBody"></tbody>
+                </table>
+
+            </section>
+
+            <!-- Missing Export Buttons -->
+            <section class="export-section" id="export-section">
+                <button id="export-csv">Export as CSV</button>
+                <button id="export-pdf">Export as PDF</button>
+            </section>
+        </main>
+    </div>
+
+    <!-- Load charts.js AFTER Chart.js -->
+    <script src="charts.js"></script>
+
+    <script src="../dashboard/export.js"></script>
+    <script src="../dashboard/dashboard.js"></script>
+</body>
+</html>
